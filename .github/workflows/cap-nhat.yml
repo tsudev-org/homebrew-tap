@@ -1,0 +1,33 @@
+name: cap-nhat
+on:
+  schedule:
+    - cron: '41 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: cap-nhat
+jobs:
+  cap-nhat:
+    name: Cap nhat cask theo Release moi
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Cap nhat, cai thu, day len main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 tools/cap-nhat.py
+          if git diff --quiet Casks; then exit 0; fi
+          brew tap-new --no-git tsudev-org/local-test
+          tap="$(brew --repository)/Library/Taps/tsudev-org/homebrew-local-test"
+          mkdir -p "$tap/Casks" && cp Casks/*.rb "$tap/Casks/"
+          for f in $(git diff --name-only Casks); do
+            c="$(basename "$f" .rb)"
+            brew install --cask "tsudev-org/local-test/$c"
+            brew uninstall --cask "tsudev-org/local-test/$c"
+          done
+          git config user.name 'tsudev-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -am "chore(casks): cap nhat theo Release moi"
+          git push
