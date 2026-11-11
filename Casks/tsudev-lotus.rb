@@ -13,7 +13,7 @@ cask "tsudev-lotus" do
     regex(/v?(\d+(?:\.\d+)+-lotus\.\d+)/i)
   end
 
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "tsudev-lotus.app"
 end
