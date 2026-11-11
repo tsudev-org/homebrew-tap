@@ -8,13 +8,15 @@ cask "tsudev-files" do
   url "https://github.com/tsudev-org/tsudev-files/releases/download/v#{version}/tsudev-files-#{version}-osx-#{arch}.tar.gz"
   name "tsudev Files"
   desc "Chuyen doi tep ngoai tuyen 260+ dinh dang - ban Viet hoa cua Filee"
-  homepage "https://files.tsudev.com"
+  homepage "https://files.tsudev.com/"
 
   livecheck do
     url :url
     strategy :github_latest
     regex(/v?(\d+(?:\.\d+)+-vn\.\d+)/i)
   end
+
+  depends_on :macos
 
   app "tsudev-files-#{version}-osx-#{arch}/Filee.app", target: "tsudev Files.app"
   binary "#{appdir}/tsudev Files.app/Contents/MacOS/filee-cli", target: "tsudev-files"

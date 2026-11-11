@@ -5,7 +5,7 @@ cask "tsudev-lotus" do
   url "https://github.com/tsudev-org/tsudev-lotus/releases/download/v#{version}/tsudev-lotus-#{version.split("-").first}-macos.dmg"
   name "tsudev Lotus"
   desc "Gui tep giua cac thiet bi trong cung mang - ban Viet hoa cua LocalSend"
-  homepage "https://lotus.tsudev.com"
+  homepage "https://lotus.tsudev.com/"
 
   livecheck do
     url :url
