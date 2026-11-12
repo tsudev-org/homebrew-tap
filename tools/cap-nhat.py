@@ -42,15 +42,16 @@ if v != cu:
     s = re.sub(r'intel: "[0-9a-f]{64}"', f'intel: "{hi}"', s)
     open(p, "w").write(s); doi = True; print(f"tsudev-files {cu} -> {v}")
 
-p = "Casks/tsudev-lotus.rb"; s = open(p).read()
-v = latest("tsudev-lotus"); cu = re.search(r'version "([^"]+)"', s).group(1)
+# Lotus Share (doi ten tu tsudev-lotus 12/11/2026; cask_renames.json chuyen may da cai ten cu).
+p = "Casks/lotus-share.rb"; s = open(p).read()
+v = latest("lotus-share"); cu = re.search(r'version "([^"]+)"', s).group(1)
 if v != cu:
-    base = f"https://github.com/tsudev-org/tsudev-lotus/releases/download/v{v}"
-    ten = f"tsudev-lotus-{v.split('-')[0]}-macos.dmg"
+    base = f"https://github.com/tsudev-org/lotus-share/releases/download/v{v}"
+    ten = f"lotus-share-{v.split('-')[0]}-macos.dmg"
     h = sums([f"{base}/SHA256SUMS.txt"])[ten]
     kiem(f"{base}/{ten}", h)
     s = s.replace(cu, v)
     s = re.sub(r'sha256 "[0-9a-f]{64}"', f'sha256 "{h}"', s)
-    open(p, "w").write(s); doi = True; print(f"tsudev-lotus {cu} -> {v}")
+    open(p, "w").write(s); doi = True; print(f"lotus-share {cu} -> {v}")
 
 print("co thay doi" if doi else "khong co ban moi")
