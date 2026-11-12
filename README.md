@@ -14,6 +14,14 @@ brew install --cask tsudev-org/tap/lotus-share
 
 Cập nhật: `brew upgrade --cask`. Gỡ: `brew uninstall --cask <tên>`.
 
+## Danh mục máy đọc
+
+[`catalog.json`](catalog.json) (schema 1, cùng dạng `https://pkg.tsudev.com/catalog.json`) liệt kê mọi cask trong
+tap: phiên bản, kiến trúc, macOS tối thiểu, lệnh đi kèm, cask thay thế khi đổi tên (`replacedBy`), lệnh cài.
+Website `*.tsudev.com` và `install.sh` của tsudev.com đọc tệp này lúc build qua
+`https://raw.githubusercontent.com/tsudev-org/homebrew-tap/main/catalog.json`. Sinh bằng `python3 tools/catalog.py`;
+CI từ chối nếu tệp cũ, `cap-nhat` sinh lại cùng commit cập nhật cask.
+
 ## Bảo mật
 
 - Mỗi cask ghim **SHA-256** lấy từ `SHA256SUMS` của chính Release trên `tsudev-org` và được đối chiếu với tệp tải

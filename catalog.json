@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "channel": "homebrew",
+ "tap": {
+  "name": "tsudev-org/tap",
+  "url": "https://github.com/tsudev-org/homebrew-tap"
+ },
+ "setup": [],
+ "packages": [
+  {
+   "name": "lotus-share",
+   "version": "2.0.0-lotus.7",
+   "displayName": "Lotus Share",
+   "description": "Gui tep giua cac thiet bi trong cung mang - ban Viet hoa cua LocalSend",
+   "homepage": "https://lotus.tsudev.com/",
+   "arch": [
+    "any"
+   ],
+   "minMacos": "12",
+   "commands": [],
+   "replacedBy": null,
+   "install": "brew install --cask tsudev-org/tap/lotus-share",
+   "installFull": "brew install --cask tsudev-org/tap/lotus-share"
+  },
+  {
+   "name": "tsudev-files",
+   "version": "2.4.0-vn.1",
+   "displayName": "tsudev Files",
+   "description": "Chuyen doi tep ngoai tuyen 260+ dinh dang - ban Viet hoa cua Filee",
+   "homepage": "https://files.tsudev.com/",
+   "arch": [
+    "arm64",
+    "x64"
+   ],
+   "minMacos": null,
+   "commands": [
+    "tsudev-files"
+   ],
+   "replacedBy": null,
+   "install": "brew install --cask tsudev-org/tap/tsudev-files",
+   "installFull": "brew install --cask tsudev-org/tap/tsudev-files"
+  },
+  {
+   "name": "tsudev-lotus",
+   "version": "2.0.0-lotus.7",
+   "displayName": "Lotus Share",
+   "description": "Gui tep giua cac thiet bi trong cung mang - ban Viet hoa cua LocalSend",
+   "homepage": "https://lotus.tsudev.com/",
+   "arch": [
+    "any"
+   ],
+   "minMacos": "12",
+   "commands": [],
+   "replacedBy": "lotus-share",
+   "install": "brew install --cask tsudev-org/tap/tsudev-lotus",
+   "installFull": "brew install --cask tsudev-org/tap/tsudev-lotus"
+  }
+ ]
+}
