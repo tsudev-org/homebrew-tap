@@ -1,6 +1,6 @@
 cask "lotus-share" do
-  version "1.18.2-lotus.3"
-  sha256 "a6d44cff23af1c9316fcaa4e65eb052c0ea53e9959675b2b67a5c59845bcfc39"
+  version "1.18.2-lotus.4"
+  sha256 "42a5645c489032f7e48b063c138e2932707c317473aec7c32a3978f2c1c251ee"
 
   url "https://github.com/tsudev-org/lotus-share/releases/download/v#{version}/lotus-share-#{version.split("-").first}-macos.dmg"
   name "Lotus Share"
