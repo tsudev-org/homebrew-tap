@@ -27,3 +27,26 @@ jobs:
             brew install --cask "tsudev-org/local-test/$c"
             brew uninstall --cask "tsudev-org/local-test/$c"
           done
+
+  doi-ten:
+    name: Ten cu tsudev-lotus - may da cai nhan ban moi qua brew upgrade
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Cai ban cu (truoc doi ten), nang cap, kiem app moi
+        run: |
+          set -euo pipefail
+          brew tap-new --no-git tsudev-org/rename-test
+          tap="$(brew --repository)/Library/Taps/tsudev-org/homebrew-rename-test"
+          mkdir -p "$tap/Casks"
+          git show 715026f:Casks/tsudev-lotus.rb > "$tap/Casks/tsudev-lotus.rb"   # 1.18.2-lotus.2, tsudev-lotus.app
+          brew install --cask tsudev-org/rename-test/tsudev-lotus
+          test -d /Applications/tsudev-lotus.app
+          cp Casks/*.rb "$tap/Casks/"
+          brew upgrade --cask tsudev-org/rename-test/tsudev-lotus
+          test -d "/Applications/Lotus Share.app" || { echo "LOI: chua co Lotus Share.app sau nang cap"; exit 1; }
+          test ! -e /Applications/tsudev-lotus.app || { echo "LOI: con tsudev-lotus.app"; exit 1; }
+          brew uninstall --cask tsudev-org/rename-test/tsudev-lotus
+          test ! -e "/Applications/Lotus Share.app"
