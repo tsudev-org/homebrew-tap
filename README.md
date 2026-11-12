@@ -10,7 +10,7 @@ brew install --cask tsudev-org/tap/lotus-share
 | Cask | Sản phẩm | Ghi chú |
 | --- | --- | --- |
 | `tsudev-files` | [tsudev Files](https://files.tsudev.com) - chuyển đổi tệp ngoại tuyến 260+ định dạng | Apple Silicon và Intel; kèm lệnh `tsudev-files` |
-| `lotus-share` | [Lotus Share](https://lotus.tsudev.com) - gửi tệp trong mạng nội bộ, tương thích LocalSend | macOS 12 trở lên. Tên cũ `tsudev-lotus` tự chuyển khi `brew upgrade` (`cask_renames.json`) |
+| `lotus-share` | [Lotus Share](https://lotus.tsudev.com) - gửi tệp trong mạng nội bộ, tương thích LocalSend | macOS 12 trở lên. Tên cũ `tsudev-lotus` (đã deprecate) vẫn nhận bản mới khi `brew upgrade`, nên chuyển: `brew uninstall --cask tsudev-lotus && brew install --cask tsudev-org/tap/lotus-share` |
 
 Cập nhật: `brew upgrade --cask`. Gỡ: `brew uninstall --cask <tên>`.
 

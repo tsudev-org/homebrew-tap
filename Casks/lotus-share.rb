@@ -13,6 +13,7 @@ cask "lotus-share" do
     regex(/v?(\d+(?:\.\d+)+-lotus\.\d+)/i)
   end
 
+  conflicts_with cask: "tsudev-lotus"
   depends_on macos: :monterey
 
   app "Lotus Share.app"

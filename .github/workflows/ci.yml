@@ -29,32 +29,24 @@ jobs:
           done
 
   doi-ten:
-    name: Doi ten cask (cask_renames.json) - may da cai ten cu tu chuyen
+    name: Ten cu tsudev-lotus - may da cai nhan ban moi qua brew upgrade
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
-      - name: Cai ten cu, nang cap, kiem ten moi
+      - name: Cai ban cu (truoc doi ten), nang cap, kiem app moi
         run: |
           set -euo pipefail
           brew tap-new --no-git tsudev-org/rename-test
           tap="$(brew --repository)/Library/Taps/tsudev-org/homebrew-rename-test"
           mkdir -p "$tap/Casks"
-          python3 - "$tap" <<'PY'
-          import json, subprocess, sys
-          tap = sys.argv[1]
-          for old, new in json.load(open("cask_renames.json")).items():
-              # Ban cuoi cung cua cask ten cu trong lich su repo (truoc khi doi ten).
-              rev = subprocess.check_output(["git", "log", "-1", "--format=%H", "--", f"Casks/{old}.rb"], text=True).strip()
-              src = subprocess.check_output(["git", "show", f"{rev}^:Casks/{old}.rb"], text=True)
-              open(f"{tap}/Casks/{old}.rb", "w").write(src)
-          PY
-          for f in "$tap"/Casks/*.rb; do brew install --cask "tsudev-org/rename-test/$(basename "$f" .rb)"; done
-          rm "$tap"/Casks/*.rb && cp Casks/*.rb "$tap/Casks/" && cp cask_renames.json "$tap/"
-          brew upgrade --cask
-          python3 -c 'import json; [print(o, n) for o, n in json.load(open("cask_renames.json")).items()]' | while read -r old new; do
-            brew list --cask | tee /dev/stderr | grep -qx "$new" || { echo "LOI: $old chua chuyen sang $new"; exit 1; }
-            brew list --cask | grep -qx "$old" && { echo "LOI: con $old"; exit 1; } || true
-            brew uninstall --cask "tsudev-org/rename-test/$new"
-          done
+          git show 715026f:Casks/tsudev-lotus.rb > "$tap/Casks/tsudev-lotus.rb"   # 1.18.2-lotus.2, tsudev-lotus.app
+          brew install --cask tsudev-org/rename-test/tsudev-lotus
+          test -d /Applications/tsudev-lotus.app
+          cp Casks/*.rb "$tap/Casks/"
+          brew upgrade --cask tsudev-org/rename-test/tsudev-lotus
+          test -d "/Applications/Lotus Share.app" || { echo "LOI: chua co Lotus Share.app sau nang cap"; exit 1; }
+          test ! -e /Applications/tsudev-lotus.app || { echo "LOI: con tsudev-lotus.app"; exit 1; }
+          brew uninstall --cask tsudev-org/rename-test/tsudev-lotus
+          test ! -e "/Applications/Lotus Share.app"
