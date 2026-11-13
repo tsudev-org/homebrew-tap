@@ -10,8 +10,15 @@ jobs:
   cap-nhat:
     name: Cap nhat cask theo Release moi
     runs-on: macos-latest
+    # Đẩy lên main bằng deploy key (secret BOT_DEPLOY_KEY của environment `bot`, CHỈ nhánh main dùng được) -
+    # ngoại lệ DUY NHẤT của required check `Bảo vệ bản quyền` (ruleset bypass actor = DeployKey). Workflow
+    # chạy từ nhánh PR không lấy được secret của environment này. Chưa có key ⇒ checkout dùng GITHUB_TOKEN
+    # như cũ (giai đoạn chuyển tiếp). Thiết lập: tsudev docs/ban-quyen.md mục 6.
+    environment: bot
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ssh-key: ${{ secrets.BOT_DEPLOY_KEY }}
       - name: Cap nhat, cai thu, day len main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
