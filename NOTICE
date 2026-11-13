@@ -1,0 +1,13 @@
+homebrew-tap - Homebrew tap of the tsudev ecosystem
+Copyright 2026 tsudev - https://tsudev.com
+
+This repository (Homebrew casks, catalog and tools) is developed and owned by tsudev. It is licensed under the Apache License, Version 2.0 (see LICENSE).
+Under section 4(d) of that license, any redistribution or derivative work MUST keep this NOTICE
+file, and all copyright, patent, trademark and attribution notices, intact.
+
+The applications installed by these casks are distributed under their own licenses; see the
+repository of each product.
+
+The name "tsudev", the tsudev logo and the product names and logos of the tsudev ecosystem are
+trademarks of tsudev. The Apache License does NOT grant permission to use them (section 6).
+See https://github.com/tsudev-org/tsudev/blob/main/TRADEMARKS.md

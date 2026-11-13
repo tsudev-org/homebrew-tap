@@ -30,3 +30,10 @@ CI từ chối nếu tệp cũ, `cap-nhat` sinh lại cùng commit cập nhật 
 - App chưa được Apple công chứng (notarize): lần mở đầu macOS có thể cảnh báo. Kiểm nguồn gốc bằng
   `gh attestation verify` hoặc mã băm trong Release.
 - Quy ước đóng gói: [`tsudev-standards/docs/PACKAGING.md`](https://github.com/tsudev-org/tsudev-standards/blob/main/docs/PACKAGING.md).
+
+## Giấy phép
+
+Repo này (cask, `catalog.json`, công cụ): [Apache-2.0](LICENSE). Bản phân phối lại phải giữ `NOTICE` (điều 4(d)).
+Mỗi ứng dụng giữ giấy phép của sản phẩm gốc. Tên và logo tsudev là nhãn hiệu, không nằm trong giấy phép: xem
+[TRADEMARKS.md](https://github.com/tsudev-org/tsudev/blob/main/TRADEMARKS.md). PR chạm `LICENSE`, `NOTICE` hoặc xoá dòng
+bản quyền cần chủ sở hữu phê duyệt (check `Bảo vệ bản quyền`, xem `AGENTS.md`).
