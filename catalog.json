@@ -24,8 +24,8 @@
   },
   {
    "name": "tsudev-files",
-   "version": "2.4.0-vn.1",
-   "displayName": "tsudev Files",
+   "version": "2.4.1-vn.1",
+   "displayName": "TsuFiles",
    "description": "Chuyen doi tep ngoai tuyen 260+ dinh dang - ban Viet hoa cua Filee",
    "homepage": "https://files.tsudev.com/",
    "arch": [
@@ -34,6 +34,7 @@
    ],
    "minMacos": null,
    "commands": [
+    "tsufiles",
     "tsudev-files"
    ],
    "replacedBy": null,

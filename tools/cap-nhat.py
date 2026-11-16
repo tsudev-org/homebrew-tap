@@ -31,7 +31,7 @@ def kiem(url, h):
 
 doi = False
 p = "Casks/tsudev-files.rb"; s = open(p).read()
-v = latest("tsudev-files"); cu = re.search(r'version "([^"]+)"', s).group(1)
+v = latest("tsufiles"); cu = re.search(r'version "([^"]+)"', s).group(1)
 if v != cu:
     base = f"https://github.com/tsudev-org/tsufiles/releases/download/v{v}"
     t = sums([f"{base}/tsudev-files-{v}-osx-{a}-SHA256SUMS.txt" for a in ("arm64", "x64")])
