@@ -1,12 +1,12 @@
 cask "tsudev-files" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.4.0-vn.1"
-  sha256 arm:   "ccb8050a0c9cb4f0b9037caba7a70c4a5ab3a6178f48ca166f8b74cb55dcec93",
-         intel: "a9d9f746db94d72def94b6c5089aab9059c84488d5833650f8152574eb527895"
+  version "2.4.1-vn.1"
+  sha256 arm:   "c5de5ad2b1cba52764bcd407708372604a679b815c3b8ef9acc6b4caf306ea52",
+         intel: "a6b1f62fd95ee48f5e8bee98e5a0774b01f25f6e3de41c229a7d3a6e3e2c09d1"
 
   url "https://github.com/tsudev-org/tsufiles/releases/download/v#{version}/tsudev-files-#{version}-osx-#{arch}.tar.gz"
-  name "tsudev Files"
+  name "TsuFiles"
   desc "Chuyen doi tep ngoai tuyen 260+ dinh dang - ban Viet hoa cua Filee"
   homepage "https://files.tsudev.com/"
 
@@ -18,6 +18,9 @@ cask "tsudev-files" do
 
   depends_on :macos
 
-  app "tsudev-files-#{version}-osx-#{arch}/Filee.app", target: "tsudev Files.app"
-  binary "#{appdir}/tsudev Files.app/Contents/MacOS/filee-cli", target: "tsudev-files"
+  # Tu 2.4.1: bundle TsuFiles.app, lenh tsufiles-cli (phieu linux-packages 20261113-04 muc 2).
+  # Giu lenh `tsudev-files` cho script cu cua nguoi dung.
+  app "tsudev-files-#{version}-osx-#{arch}/TsuFiles.app"
+  binary "#{appdir}/TsuFiles.app/Contents/MacOS/tsufiles-cli", target: "tsufiles"
+  binary "#{appdir}/TsuFiles.app/Contents/MacOS/tsufiles-cli", target: "tsudev-files"
 end

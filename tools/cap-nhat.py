@@ -31,7 +31,7 @@ def kiem(url, h):
 
 doi = False
 p = "Casks/tsudev-files.rb"; s = open(p).read()
-v = latest("tsudev-files"); cu = re.search(r'version "([^"]+)"', s).group(1)
+v = latest("tsufiles"); cu = re.search(r'version "([^"]+)"', s).group(1)
 if v != cu:
     base = f"https://github.com/tsudev-org/tsufiles/releases/download/v{v}"
     t = sums([f"{base}/tsudev-files-{v}-osx-{a}-SHA256SUMS.txt" for a in ("arm64", "x64")])
@@ -54,5 +54,17 @@ for p in ("Casks/lotus-share.rb", "Casks/tsudev-lotus.rb"):
       s = s.replace(cu, v)
       s = re.sub(r'sha256 "[0-9a-f]{64}"', f'sha256 "{h}"', s)
       open(p, "w").write(s); doi = True; print(f"{p} {cu} -> {v}")
+
+# Sound Db: mot tep zip universal, ma bam tu SHA256SUMS (khong duoi .txt) cua Release.
+p = "Casks/tsudev-sound-db.rb"; s = open(p).read()
+v = latest("sound-db"); cu = re.search(r'version "([^"]+)"', s).group(1)
+if v != cu:
+    base = f"https://github.com/tsudev-org/sound-db/releases/download/v{v}"
+    ten = f"sound-db_{v}_universal-macos.zip"
+    h = sums([f"{base}/SHA256SUMS"])[ten]
+    kiem(f"{base}/{ten}", h)
+    s = s.replace(cu, v)
+    s = re.sub(r'sha256 "[0-9a-f]{64}"', f'sha256 "{h}"', s)
+    open(p, "w").write(s); doi = True; print(f"{p} {cu} -> {v}")
 
 print("co thay doi" if doi else "khong co ban moi")
