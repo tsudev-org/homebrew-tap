@@ -3,8 +3,9 @@ on:
   schedule:
     - cron: '41 */6 * * *'
   workflow_dispatch:
+# GITHUB_TOKEN chỉ đọc: đẩy lên main bằng deploy key BOT_DEPLOY_KEY (environment `bot`) ở bước checkout.
 permissions:
-  contents: write
+  contents: read
 concurrency: cap-nhat
 jobs:
   cap-nhat:
