@@ -1,16 +1,16 @@
 cask "tsudev-lotus" do
-  version "2.0.0-lotus.7"
-  sha256 "2a49b1cb7254c1bfc0634e2ffeda6f0675c5d3e3af6ae018fc5806bd1553a131"
+  version "26.11.1801"
+  sha256 "8bb9d7c6ffced3482ce81036d12ff0b3bd763910c1e3dac2724fe178b4f7a0e1"
 
-  url "https://github.com/tsudev-org/lotus-share/releases/download/v#{version}/lotus-share-#{version.split("-").first}-macos.dmg"
+  url "https://github.com/tsudev-org/lotus-share/releases/download/v#{version}/lotus-share_#{version}_macos-universal.dmg"
   name "Lotus Share"
-  desc "Gui tep giua cac thiet bi trong cung mang - ban Viet hoa cua LocalSend"
+  desc "Gui tep giua cac thiet bi trong cung mang, khong can Internet"
   homepage "https://lotus.tsudev.com/"
 
   livecheck do
     url :url
     strategy :github_latest
-    regex(/v?(\d+(?:\.\d+)+-lotus\.\d+)/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   # Ten cu (truoc 12/11/2026). Ma da cong bo khong bo (PACKAGING.md muc 2): may da cai van nhan ban moi qua
