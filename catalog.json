@@ -9,9 +9,9 @@
  "packages": [
   {
    "name": "lotus-share",
-   "version": "2.0.0-lotus.7",
+   "version": "26.11.1801",
    "displayName": "Lotus Share",
-   "description": "Gui tep giua cac thiet bi trong cung mang - ban Viet hoa cua LocalSend",
+   "description": "Gui tep giua cac thiet bi trong cung mang, khong can Internet",
    "homepage": "https://lotus.tsudev.com/",
    "arch": [
     "any"
@@ -43,9 +43,9 @@
   },
   {
    "name": "tsudev-lotus",
-   "version": "2.0.0-lotus.7",
+   "version": "26.11.1801",
    "displayName": "Lotus Share",
-   "description": "Gui tep giua cac thiet bi trong cung mang - ban Viet hoa cua LocalSend",
+   "description": "Gui tep giua cac thiet bi trong cung mang, khong can Internet",
    "homepage": "https://lotus.tsudev.com/",
    "arch": [
     "any"

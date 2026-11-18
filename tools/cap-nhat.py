@@ -48,7 +48,8 @@ for p in ("Casks/lotus-share.rb", "Casks/tsudev-lotus.rb"):
   v = latest("lotus-share"); cu = re.search(r'version "([^"]+)"', s).group(1)
   if v != cu:
       base = f"https://github.com/tsudev-org/lotus-share/releases/download/v{v}"
-      ten = f"lotus-share-{v.split('-')[0]}-macos.dmg"
+      # Tu 26.11.1801: khuon VERSIONING v3 (nhan vYY.M.DDNN, tep lotus-share_{ver}_macos-universal.dmg).
+      ten = f"lotus-share_{v}_macos-universal.dmg"
       h = sums([f"{base}/SHA256SUMS.txt"])[ten]
       kiem(f"{base}/{ten}", h)
       s = s.replace(cu, v)
