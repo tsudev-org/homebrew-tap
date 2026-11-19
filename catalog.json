@@ -9,7 +9,7 @@
  "packages": [
   {
    "name": "lotus-share",
-   "version": "26.11.1801",
+   "version": "26.11.1901",
    "displayName": "Lotus Share",
    "description": "Gui tep giua cac thiet bi trong cung mang, khong can Internet",
    "homepage": "https://lotus.tsudev.com/",
@@ -43,7 +43,7 @@
   },
   {
    "name": "tsudev-lotus",
-   "version": "26.11.1801",
+   "version": "26.11.1901",
    "displayName": "Lotus Share",
    "description": "Gui tep giua cac thiet bi trong cung mang, khong can Internet",
    "homepage": "https://lotus.tsudev.com/",
