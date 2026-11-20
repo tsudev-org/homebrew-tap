@@ -5,7 +5,7 @@ cask "tsudev-sound-db" do
   url "https://github.com/tsudev-org/sound-db/releases/download/v#{version}/sound-db_#{version}_universal-macos.zip"
   name "Sound Db"
   desc "May do am thanh chinh xac: dB, pho FFT, dai octave, cao do"
-  homepage "https://sounddb.tsudev.com/"
+  homepage "https://sound.tsudev.com/"
 
   livecheck do
     url :url
