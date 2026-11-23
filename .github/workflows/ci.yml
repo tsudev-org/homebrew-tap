@@ -11,14 +11,14 @@ jobs:
     name: catalog.json khop Casks/
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: python3 tools/catalog.py --check
 
   cai-thu:
     name: Cai thu cask tren macOS
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Gan tap tu ma nguon nay
         run: |
           brew tap-new --no-git tsudev-org/local-test
@@ -39,7 +39,7 @@ jobs:
     name: Ten cu tsudev-lotus - may da cai nhan ban moi qua brew upgrade
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
       - name: Cai ban cu (truoc doi ten), nang cap, kiem app moi
