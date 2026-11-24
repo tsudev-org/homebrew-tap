@@ -1,6 +1,6 @@
 cask "tsudev-sound-db" do
-  version "26.11.1705"
-  sha256 "1f7f40c533bfe1f0eafa7cf7d14183e9b47a74c3d842b532c45f325403708a23"
+  version "26.11.2302"
+  sha256 "a103644548ba2d32b733df69432532dd820593ca3a5614bf65a8c983bdbbeaf2"
 
   url "https://github.com/tsudev-org/sound-db/releases/download/v#{version}/sound-db_#{version}_universal-macos.zip"
   name "Sound Db"
